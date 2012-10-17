@@ -9,7 +9,8 @@ O _VOVER_ é um open-source desenvolvido em Java.
 1. RTSP: ”Real Time Stream Protocol” é utilizado para enviar (cliente) e receber (servidor) as requisições e trata-las.
 2. RTP: ”Real Time Protocol” é utilizado para o envio fluxo dos videos.
 
-#### Formato do video: MJPEG ( mesmo formato utilizado pelos videos de webcam ).
+#### Formatos do video: 
+1. MJPEG
 
 Mantém estado de conexão, mas não mantém conexão.
 
