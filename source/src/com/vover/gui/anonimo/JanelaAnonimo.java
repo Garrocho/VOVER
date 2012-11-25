@@ -4,6 +4,7 @@ import static com.vover.recursos.Recursos.adicionaImagem;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -11,6 +12,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -39,6 +42,7 @@ public class JanelaAnonimo extends Janela {
 	private JButton botaoExecutar, botaoPausar, botaoParar, botaoForward, botaoRewind, botaConfig;
 	private JPopupMenu popMenu;
 	private JMenuItem menuCadastro, menuLogar;
+	private long timeLastShown = 100;
 
 	public JanelaAnonimo() {
 
@@ -71,7 +75,15 @@ public class JanelaAnonimo extends Janela {
 		
 		botaConfig = new JButton(new ImageIcon("Recursos//Icones//Botoes//configuracao.png"));
 		botaConfig.setBorder(null);
-		botaConfig.addMouseListener(tratadorEventos);
+		botaConfig.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if ((System.currentTimeMillis() - timeLastShown) > 300) {
+					Component c = (Component) e.getSource();
+					popMenu.show(c, 25, c.getHeight());
+				}
+			}
+		});
 		botaConfig.setText("OPCOES                ");
 		
 		menuCadastro = new JMenuItem("CADASTRO");
