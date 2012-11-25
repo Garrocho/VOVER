@@ -379,8 +379,6 @@ public class TratadorEventosCliente extends KeyAdapter implements ActionListener
 	public void mouseExited(MouseEvent evento) {
 	}
 	public void mousePressed(MouseEvent evento) {
-		if (evento.getSource() == janelaCliente.getBotaConfig())
-			janelaCliente.getPopMenu().show( evento.getComponent(), evento.getX(), evento.getY() ); 
 	}
 	public void mouseReleased(MouseEvent e) {
 	}

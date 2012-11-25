@@ -300,8 +300,6 @@ public class TratadorEventosAnonimo extends KeyAdapter implements ActionListener
 	public void mouseExited(MouseEvent evento) {
 	}
 	public void mousePressed(MouseEvent evento) {
-		if (evento.getSource() == janelaAnonimo.getBotaConfig())
-			janelaAnonimo.getPopMenu().show( evento.getComponent(), evento.getX(), evento.getY() ); 
 	}
 	public void mouseReleased(MouseEvent arg0) {
 	}
