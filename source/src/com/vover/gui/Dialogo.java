@@ -1,15 +1,14 @@
 package com.vover.gui;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Toolkit;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import com.vover.gui.Janela.ShadowBorder;
@@ -30,7 +29,7 @@ public abstract class Dialogo extends JDialog {
 	
 	protected abstract void configurarEventos();
 	
-	public void definirPropriedades(JFrame janelaPai, String titulo, Dimension dimensao) {
+	public void definirPropriedades(Component janelaPai, String titulo, Dimension dimensao) {
 		setTitle(titulo);
 		this.getRootPane().setBorder(new ShadowBorder());
 		if (dimensao == null)
@@ -39,7 +38,6 @@ public abstract class Dialogo extends JDialog {
 			setSize(dimensao);
 		setModal(true);
 		setBackground(Color.DARK_GRAY);
-		setIconImage(Toolkit.getDefaultToolkit().getImage("Recursos//Icones//Imagens//logo.png"));
 		setLocationRelativeTo(janelaPai);
 		setResizable(false);
 		setVisible(true);
@@ -50,7 +48,7 @@ public abstract class Dialogo extends JDialog {
 	 * @return <code>URL</code> com o endereco do recurso
 	 */
 	public static URL getResource(String enderecoArquivo){
-		return Dialogo.class.getResource("/icones/" + enderecoArquivo);
+		return Janela.class.getResource("/icones/" + enderecoArquivo);
 	}
 	
 	public class Painel extends JPanel {
