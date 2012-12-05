@@ -25,6 +25,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import com.vover.gui.Janela.ShadowBorder;
 import com.vover.gui.cliente.eventos.TratadorEventosMeusVideos;
 import com.vover.gui.recursos.TamanhoMaximo;
 
@@ -153,6 +154,7 @@ public class DialogoMeusVideos extends JDialog {
 			}
 		});
 		pack();
+		this.getRootPane().setBorder(new ShadowBorder());
 		setModal(true);
 		setIconImage(Toolkit.getDefaultToolkit().getImage("Recursos//Icones//icone.png"));
 		setLocationRelativeTo(janelaPai);

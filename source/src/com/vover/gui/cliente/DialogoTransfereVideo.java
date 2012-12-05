@@ -19,6 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import com.vover.gui.Janela.ShadowBorder;
 import com.vover.gui.cliente.eventos.TratadorEventosTransfereVideo;
 import com.vover.gui.recursos.TamanhoMaximo;
 
@@ -99,6 +100,7 @@ public class DialogoTransfereVideo extends JDialog {
 			}
 		});
 		pack();
+		this.getRootPane().setBorder(new ShadowBorder());
 		setModal(true);
 		setIconImage(Toolkit.getDefaultToolkit().getImage("Recursos//Icones//icone.png"));
 		setLocationRelativeTo(janelaPai);
