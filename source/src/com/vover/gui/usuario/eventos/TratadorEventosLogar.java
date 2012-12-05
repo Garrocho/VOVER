@@ -1,12 +1,11 @@
 package com.vover.gui.usuario.eventos;
 
-import static javax.swing.JOptionPane.*;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import com.vover.gui.cliente.JanelaCliente;
+import com.vover.gui.recursos.DialogoErro;
 import com.vover.gui.usuario.DialogoCadastro;
 import com.vover.gui.usuario.DialogoLogar;
 import com.vover.recursos.ConexaoCliente;
@@ -48,26 +47,26 @@ public class TratadorEventosLogar implements ActionListener {
 				ERROS += "\nA Senha do Usuario deve Conter no Minimo 6 Caracteres.";		
 
 			// Verifica se nao existe erros.
-			if (!ERROS.equalsIgnoreCase("Os Seguintes Erros Foram Encontrados:")) 
-				showMessageDialog(dialogoLogar, ERROS, "Erro", ERROR_MESSAGE);
+			if (!ERROS.equalsIgnoreCase("Os Seguintes Erros Foram Encontrados:"))
+				new DialogoErro(dialogoLogar, "Erros", ERROS);
 			else {
 				try {
 					String resposta = logarCliente(usuario, senha);
 					if (resposta.equalsIgnoreCase("NAO_AUTORIZADO")) {
-						showMessageDialog(dialogoLogar, "Usuario Nao Cadastrado.", "Atencao", INFORMATION_MESSAGE);
+						new DialogoErro(dialogoLogar, "Erro", "Usuario Nao Cadastrado.");
 					}
 					else if (resposta.equalsIgnoreCase("OK_USUARIO_NAO_SENHA")) {
-						showMessageDialog(dialogoLogar, "Usuario Correto, Senha Invalida.", "Atencao", INFORMATION_MESSAGE);
+						new DialogoErro(dialogoLogar, "Erro", "Usuario Correto, Senha Invalida.");
 					}
 					else if (resposta.equalsIgnoreCase("NAO_USUARIO_ONLINE")) {
-						showMessageDialog(dialogoLogar, "Esta Conta Ja Foi Conectada Em Outro Computador.", "Atencao", INFORMATION_MESSAGE);
+						new DialogoErro(dialogoLogar, "Erro", "Esta Conta Foi Conectada em Outro Computador");
 					}
 					else if (resposta.equalsIgnoreCase("OK_AUTORIZADO")) {
 						new JanelaCliente(dialogoLogar, usuario);
 					}
 					
 					else if (resposta.equalsIgnoreCase("OFFLINE")) {
-						showMessageDialog(dialogoLogar, "O Servidor Está Desligado.", "Erro ao Conectar...", ERROR_MESSAGE);
+						new DialogoErro(dialogoLogar, "Erro ao Conectar...", "O Servidor Esta Desligado.");
 					}
 				} catch (IOException e) {
 					e.printStackTrace();

@@ -10,10 +10,10 @@ import java.io.IOException;
 import java.net.DatagramSocket;
 import java.net.SocketException;
 
-import static javax.swing.JOptionPane.*;
 import javax.swing.table.DefaultTableModel;
 
 import com.vover.gui.anonimo.JanelaAnonimo;
+import com.vover.gui.recursos.DialogoErro;
 import com.vover.gui.usuario.DialogoCadastro;
 import com.vover.gui.usuario.DialogoLogar;
 import com.vover.recursos.ConexaoCliente;
@@ -173,7 +173,7 @@ public class TratadorEventosAnonimo extends KeyAdapter implements ActionListener
 				}
 			}
 			else
-				showMessageDialog(janelaAnonimo, "O Servidor Está Desligado.", "Erro ao Conectar...", ERROR_MESSAGE);
+				new DialogoErro(janelaAnonimo, "Erro ao Conectar...", "O Servidor Esta Desligado.");
 		}
 	}
 

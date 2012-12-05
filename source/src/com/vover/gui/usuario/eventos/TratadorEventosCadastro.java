@@ -1,13 +1,11 @@
 package com.vover.gui.usuario.eventos;
 
-import static javax.swing.JOptionPane.ERROR_MESSAGE;
-import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
-import static javax.swing.JOptionPane.showMessageDialog;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+import com.vover.gui.recursos.DialogoErro;
+import com.vover.gui.recursos.DialogoSucesso;
 import com.vover.gui.usuario.DialogoCadastro;
 import com.vover.recursos.ConexaoCliente;
 
@@ -43,22 +41,22 @@ public class TratadorEventosCadastro implements ActionListener {
 				ERROS += "\nDescreva Melhor a Senha.";
 
 			// Verifica se nao existe erros.
-			if (!ERROS.equalsIgnoreCase("Os Seguintes Erros Foram Encontrados:")) 
-				showMessageDialog(dialogoCadastro, ERROS, "Erro", ERROR_MESSAGE);
+			if (!ERROS.equalsIgnoreCase("Os Seguintes Erros Foram Encontrados:"))
+				new DialogoErro(dialogoCadastro, "Erros", ERROS);
 
 			else {
 
 				try {
 					String resposta = cadastrarCliente(nick, senha);
 					if (resposta.equalsIgnoreCase("NAO_AUTORIZADO")) {
-						showMessageDialog(dialogoCadastro, "Ja Existe um Usuario com esse Nick Cadastrado.","Atencao", INFORMATION_MESSAGE);
+						new DialogoErro(dialogoCadastro, "Erro", "Ja Existe um Usuario com esse Nick Cadastrado.");
 					}
 					
 					else if (resposta.equalsIgnoreCase("OFFLINE")) {
-						showMessageDialog(dialogoCadastro, "O Servidor Está Desligado.", "Erro ao Conectar...", ERROR_MESSAGE);
+						new DialogoErro(dialogoCadastro, "Erro ao Conectar...", "O Servidor Esta Desligado.");
 					}
 					else {
-						showMessageDialog(dialogoCadastro, "Usuario Cadastrado.", "Sucesso", INFORMATION_MESSAGE);
+						new DialogoSucesso(dialogoCadastro, "Sucesso", "Usuario Cadastrado.");
 						dialogoCadastro.dispose();
 					}
 				} catch (Exception e) {

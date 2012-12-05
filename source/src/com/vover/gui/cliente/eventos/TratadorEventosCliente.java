@@ -1,8 +1,5 @@
 package com.vover.gui.cliente.eventos;
 
-import static javax.swing.JOptionPane.ERROR_MESSAGE;
-import static javax.swing.JOptionPane.showMessageDialog;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -19,6 +16,7 @@ import com.vover.gui.anonimo.JanelaAnonimo;
 import com.vover.gui.cliente.DialogoMeusVideos;
 import com.vover.gui.cliente.DialogoTransfereVideo;
 import com.vover.gui.cliente.JanelaCliente;
+import com.vover.gui.recursos.DialogoErro;
 import com.vover.recursos.ConexaoCliente;
 import com.vover.recursos.Requisicao;
 import com.vover.recursos.Resposta;
@@ -203,7 +201,7 @@ public class TratadorEventosCliente extends KeyAdapter implements ActionListener
 				}
 			}
 			else
-				showMessageDialog(janelaCliente, "O Servidor Está Desligado.", "Erro ao Conectar...", ERROR_MESSAGE);
+				new DialogoErro(janelaCliente, "Erro ao Conectar...", "O Servidor Esta Desligado.");
 		}
 	}
 
@@ -224,7 +222,7 @@ public class TratadorEventosCliente extends KeyAdapter implements ActionListener
 					executaVideo();
 				}
 				else
-					showMessageDialog(janelaCliente, "O Servidor Está Desligado.", "Erro ao Conectar...", ERROR_MESSAGE);
+					new DialogoErro(janelaCliente, "Erro ao Conectar...", "O Servidor Esta Desligado.");
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
