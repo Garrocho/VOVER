@@ -1,13 +1,13 @@
 package com.vover.gui.recursos;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -21,7 +21,7 @@ public class DialogoErro extends Dialogo {
 	private JButton botaoOK;
 	private String mensagem;
 	
-	public DialogoErro(JFrame janelaPai, String titulo, String mensagem) {
+	public DialogoErro(Component janelaPai, String titulo, String mensagem) {
 		super();
 		this.mensagem = mensagem;
 		criarElementos();
