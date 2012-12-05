@@ -26,7 +26,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import com.vover.gui.cliente.eventos.TratadorEventosMeusVideos;
-import com.vover.recursos.TamanhoMaximo;
+import com.vover.gui.recursos.TamanhoMaximo;
 
 public class DialogoMeusVideos extends JDialog {
 

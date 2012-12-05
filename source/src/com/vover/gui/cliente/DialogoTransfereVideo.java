@@ -20,7 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.vover.gui.cliente.eventos.TratadorEventosTransfereVideo;
-import com.vover.recursos.TamanhoMaximo;
+import com.vover.gui.recursos.TamanhoMaximo;
 
 public class DialogoTransfereVideo extends JDialog {
 

@@ -36,8 +36,8 @@ import com.vover.gui.ClienteServidor;
 import com.vover.gui.Janela;
 import com.vover.gui.cliente.eventos.TratadorEventosCliente;
 import com.vover.gui.eventos.TratadorControleTempoCliente;
+import com.vover.gui.recursos.TamanhoMaximo;
 import com.vover.gui.usuario.DialogoLogar;
-import com.vover.recursos.TamanhoMaximo;
 
 public class JanelaCliente extends Janela { 
 

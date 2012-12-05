@@ -32,7 +32,7 @@ import javax.swing.table.DefaultTableModel;
 import com.vover.gui.Janela;
 import com.vover.gui.anonimo.eventos.TratadorEventosAnonimo;
 import com.vover.gui.eventos.TratadorControleTempoCliente;
-import com.vover.recursos.TamanhoMaximo;
+import com.vover.gui.recursos.TamanhoMaximo;
 
 public class JanelaAnonimo extends Janela { 
 
