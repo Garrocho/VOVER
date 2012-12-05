@@ -15,17 +15,17 @@ import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
+import com.vover.gui.Janela;
+import com.vover.gui.recursos.TamanhoMaximo;
 import com.vover.gui.usuario.eventos.TratadorEventosCadastro;
-import com.vover.recursos.TamanhoMaximo;
 
-public class DialogoCadastro extends JDialog {
+public class DialogoCadastro extends Janela {
 
 	private static final long serialVersionUID = 1L;
 	private Component janelaPai;
@@ -35,8 +35,7 @@ public class DialogoCadastro extends JDialog {
 
 	public DialogoCadastro(Component janelaPai) throws IOException {
 
-		super();
-		setTitle("VIDEO OVER SERVER");
+		super("VIDEO OVER SERVER");
 		this.janelaPai = janelaPai;
 		TratadorEventosCadastro tratadorEvento = new TratadorEventosCadastro(this);
 
@@ -102,6 +101,7 @@ public class DialogoCadastro extends JDialog {
 				getJanelaPai().setVisible(true);
 			}
 		});
+		getRootPane().setBorder(new ShadowBorder());
 		pack();
 		setIconImage(Toolkit.getDefaultToolkit().getImage("Recursos//Icones//Imagens//logo.png"));
 		setLocationRelativeTo(janelaPai);

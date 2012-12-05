@@ -13,7 +13,6 @@ import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,10 +20,11 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
+import com.vover.gui.Janela;
+import com.vover.gui.recursos.TamanhoMaximo;
 import com.vover.gui.usuario.eventos.TratadorEventosLogar;
-import com.vover.recursos.TamanhoMaximo;
 
-public class DialogoLogar extends JDialog {
+public class DialogoLogar extends Janela {
 
 	private static final long serialVersionUID = 1L;
 	private JTextField fieldLogar;
@@ -33,7 +33,7 @@ public class DialogoLogar extends JDialog {
 
 	public DialogoLogar(JFrame janelaPai) throws IOException {
 
-		super(janelaPai,"VIDEO OVER SERVER");
+		super("VIDEO OVER SERVER");
 		TratadorEventosLogar tratadorEvento = new TratadorEventosLogar(this);
 
 		JPanel painelNorte = new JPanel();
