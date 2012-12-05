@@ -1,8 +1,5 @@
 package com.vover.gui.cliente.eventos;
 
-import static javax.swing.JOptionPane.ERROR_MESSAGE;
-import static javax.swing.JOptionPane.showMessageDialog;
-
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +12,7 @@ import java.io.IOException;
 import javax.swing.table.DefaultTableModel;
 
 import com.vover.gui.cliente.DialogoMeusVideos;
+import com.vover.gui.recursos.DialogoErro;
 import com.vover.recursos.ConexaoCliente;
 import com.vover.recursos.Video;
 
@@ -66,11 +64,11 @@ public class TratadorEventosMeusVideos extends KeyAdapter implements ActionListe
 							pesquisaPorNome();
 						}
 						else {
-							showMessageDialog(dialogoMeusVideos, "Ja existe um video cadastrado com esse nome.", "Erros", ERROR_MESSAGE);
+							new DialogoErro(dialogoMeusVideos, "Erros", "Ja existe um video cadastrado com esse nome.");
 						}
 					}
 					else
-						showMessageDialog(dialogoMeusVideos, "O Servidor Está Desligado.", "Erro ao Conectar...", ERROR_MESSAGE);
+						new DialogoErro(dialogoMeusVideos, "Erro ao Conectar...", "O Servidor Esta Desligado.");
 				} catch (IOException e) {
 					e.printStackTrace();
 				} catch (ClassNotFoundException e) {
@@ -110,7 +108,7 @@ public class TratadorEventosMeusVideos extends KeyAdapter implements ActionListe
 				}
 			}
 			else 
-				showMessageDialog(dialogoMeusVideos, "O Servidor Está Desligado.", "Erro ao Conectar...", ERROR_MESSAGE);
+				new DialogoErro(dialogoMeusVideos, "Erro ao Conectar...", "O Servidor Esta Desligado.");
 		}
 	}
 
@@ -135,7 +133,7 @@ public class TratadorEventosMeusVideos extends KeyAdapter implements ActionListe
 			return false;
 		}
 		else {
-			showMessageDialog(dialogoMeusVideos, ERROS, "Erros", ERROR_MESSAGE);
+			new DialogoErro(dialogoMeusVideos, "Erros", ERROS);
 			return true;
 		}
 	}
@@ -193,8 +191,8 @@ public class TratadorEventosMeusVideos extends KeyAdapter implements ActionListe
 					e.printStackTrace();
 				}
 			}
-			else 
-				showMessageDialog(dialogoMeusVideos, "O Servidor Está Desligado.", "Erro ao Conectar...", ERROR_MESSAGE);
+			else
+				new DialogoErro(dialogoMeusVideos, "Erro ao Conectar...", "O Servidor Esta Desligado.");
 		}
 	}
 

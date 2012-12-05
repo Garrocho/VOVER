@@ -1,7 +1,5 @@
 package com.vover.gui.cliente.eventos;
 
-import static javax.swing.JOptionPane.*;
-
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +8,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 import com.vover.gui.cliente.DialogoTransfereVideo;
+import com.vover.gui.recursos.DialogoErro;
+import com.vover.gui.recursos.DialogoSucesso;
 import com.vover.recursos.ConexaoCliente;
 import static com.vover.recursos.Recursos.*;
 
@@ -71,7 +71,7 @@ public class TratadorEventosTransfereVideo implements ActionListener {
 				}
 			}
 			else
-				showMessageDialog(dialogoTransfereVideo, ERROS, "Erros", ERROR_MESSAGE);
+				new DialogoErro(dialogoTransfereVideo, "Erros", ERROS);
 		}
 	}
 
@@ -124,12 +124,12 @@ public class TratadorEventosTransfereVideo implements ActionListener {
 				conexaoCliente.getEnviaDados().write(buf, 0, tamanho);  
 			}
 			dialogoTransfereVideo.dispose();
-			showMessageDialog(dialogoTransfereVideo, "Arquivo Enviado.", "Sucesso", INFORMATION_MESSAGE);
+			new DialogoSucesso(dialogoTransfereVideo, "Sucesso", "Arquivo Enviado.");
 			conexaoCliente.desconectaServidor();
 			dialogoTransfereVideo.getJanelaPai().setVisible(true);
 		}
 		else {
-			showMessageDialog(dialogoTransfereVideo, "Ja Existe Um Arquivo com Esse Nome.", "Atencao", INFORMATION_MESSAGE);
+			new DialogoErro(dialogoTransfereVideo, "Erro", "Ja Existe Um Arquivo com Esse Nome.");
 			dialogoTransfereVideo.getCampoEnderecoVideo().setText("");
 			conexaoCliente.desconectaServidor();
 		}
